@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Optimiza Coherencia Pedagógica</title>
+<style>
+body { font-family: Arial; background-color: #f4f6f8; text-align:center; color:#333; }
+header { background-color:#1976d2; color:white; padding:20px; font-size:24px; }
+section { background:white; margin:30px auto; padding:20px; border-radius:10px; width:60%; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+button { background-color:#1976d2; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; }
+button:hover { background-color:#1259a6; }
+</style>
+</head>
+<body>
+<header>Optimiza Coherencia Pedagógica</header>
+<section>
+<h2>Sube tu PDI para análisis</h2>
+<form id='form' enctype='multipart/form-data'>
+<input type='file' id='archivo' accept='.docx' required><br><br>
+<button type='submit'>Analizar</button>
+</form>
+<div id='resultado'></div>
+</section>
+<script>
+document.getElementById('form').addEventListener('submit', async (e)=>{
+ e.preventDefault();
+ const fileInput=document.getElementById('archivo');
+ if(!fileInput.files.length){alert('Selecciona un archivo');return;}
+ const data=new FormData(); data.append('archivo',fileInput.files[0]);
+ const res=await fetch('/analizar',{method:'POST',body:data});
+ const blob=await res.blob(); const url=window.URL.createObjectURL(blob);
+ const a=document.createElement('a'); a.href=url; a.download='Informe_Coherencia_Completo.zip';
+ a.textContent='Descargar informe completo (.ZIP)';
+ document.getElementById('resultado').innerHTML='Análisis completado.<br>'; document.getElementById('resultado').appendChild(a);
+});
+</script>
+</body>
+</html>
