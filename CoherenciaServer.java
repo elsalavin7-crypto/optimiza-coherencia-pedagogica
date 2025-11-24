@@ -6,7 +6,7 @@ import java.util.zip.*;
 
 public class CoherenciaServer {
     public static void main(String[] args) throws Exception {
-        int port = 8080;
+        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "8080"));
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/", exchange -> {
             File htmlFile = new File("index.html");
