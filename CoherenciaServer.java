@@ -41,8 +41,13 @@ public class CoherenciaServer {
             }
         });
         server.start();
-        System.out.println("Servidor en http://localhost:" + port);
-        System.in.read();
-        server.stop(0);
+System.out.println("Servidor en http://localhost:" + port);
+
+// Mantener el servidor activo indefinidamente
+while (true) {
+    try {
+        Thread.sleep(10000); // Evita que Render cierre el proceso
+    } catch (InterruptedException e) {
+        e.printStackTrace();
     }
 }
