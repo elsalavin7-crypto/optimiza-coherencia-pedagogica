@@ -7,7 +7,7 @@ Este repositorio contiene la interfaz web de la **Plataforma de Apoyo a la Coher
 
 Accede a la plataforma publicada en GitHub Pages:
 
-👉 [https://elsalavin7-crypto.github.io/optimiza-coherencia-pedag-gica/](https://elsalavin7-crypto.github.io/optimiza-coherencia-pedag-gica/)
+👉 [https://elsalavin7-crypto.github.io/optimiza-coherencia-pedag-gica/](https://elsalavin7-crypto.github.io/optimiza-coherencia-pedagogica/)
 
 ## 🧭 Propósito
 
